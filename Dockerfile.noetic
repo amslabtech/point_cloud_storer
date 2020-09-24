@@ -1,4 +1,4 @@
-FROM ros:noetic-ros-base
+FROM ros:noetic-perception
 
 SHELL ["/bin/bash", "-c"]
 
