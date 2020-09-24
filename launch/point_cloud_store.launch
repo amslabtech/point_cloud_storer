@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="target_frame" default="lidar_link"/>
+    <arg name="store_num" default="20"/>
+
+    <node pkg="point_cloud_storer" name="transform_point_cloud" type="transform_point_cloud">
+        <param name="TARGET_FRAME" value="$(arg target_frame)"/>
+        <remap from="/cloud" to="/cloud"/>
+        <remap from="/odom" to="/odom"/>
+    </node>
+
+    <node pkg="point_cloud_storer" name="point_cloud_storer" type="point_cloud_storer">
+        <param name="TARGET_FRAME" value="$(arg target_frame)"/>
+        <param name="STORE_NUM" value="$(arg store_num)"/>
+        <remap from="/cloud" to="/cloud/transformed"/>
+        <remap from="/odom" to="/odom"/>
+    </node>
+</launch>
