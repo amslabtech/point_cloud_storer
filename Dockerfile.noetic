@@ -1,4 +1,4 @@
-FROM ros:noetic-perception
+FROM ros:noetic-ros-base
 
 SHELL ["/bin/bash", "-c"]
 
@@ -14,6 +14,7 @@ RUN cd catkin_ws/src && \
 COPY . /root/catkin_ws/src/repo
 
 RUN cd /root/catkin_ws && \
+    apt-get update && \
     rosdep update && \
     rosdep install -i -r -y --from-paths src && \
     source /opt/ros/noetic/setup.bash && \
