@@ -6,7 +6,7 @@
   <maintainer email="arijun0307@gmail.com">Jumpei Arima</maintainer>
 
 
-  <license>MIT</license>
+  <license>BSD-3-Clause License</license>
 
 
   <buildtool_depend>catkin</buildtool_depend>
