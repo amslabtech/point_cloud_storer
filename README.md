@@ -1,6 +1,6 @@
 # point cloud storer
 
-[![Build Status](https://travis-ci.com/amslabtech/point_cloud_storer.svg?token=q63m4ifqGqzNCAtzHCeq&branch=master)](https://travis-ci.com/amslabtech/point_cloud_storer)
+![CI](https://github.com/amslabtech/point_cloud_storer/workflows/CI/badge.svg)
 
 ## Enviornment
 - Ubuntu 18.04 or 20.04
