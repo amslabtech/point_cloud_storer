@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: build Dockerfile.melodic and catkin test
+        run: |
+          docker build -t test_docker_${ROS_DISTRO} -f Dockerfile.${ROS_DISTRO} .
+          docker run --rm test_docker_${ROS_DISTRO} bash -c "catkin_make run_tests && catkin_test_results"
+        env:
+          ROS_DISTRO: melodic
+      - name: build Dockerfile.noetic and catkin test
+        run: |
+          docker build -t test_docker_${ROS_DISTRO} -f Dockerfile.${ROS_DISTRO} .
+          docker run --rm test_docker_${ROS_DISTRO} bash -c "catkin_make run_tests && catkin_test_results"
+        env:
+          ROS_DISTRO: noetic
