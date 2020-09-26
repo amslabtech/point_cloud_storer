@@ -31,7 +31,7 @@ $ catkin_make
 - SOTRE_NUM
 
 
-### point_cloud_storer
+### transform_point_cloud
 #### Published topics
 - /cloud/transformed (sensor_msgs/PointCloud2)
 
